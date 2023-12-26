@@ -1,7 +1,7 @@
 # **Abstrak Statistical Toolkit**
 
 Welcome to Abstrak Statistical Toolkit, a statistical toolkit for
-scientific computing written in Python.
+scientific computing packed as a Python package.
 
 ## **Overview**
 
@@ -14,6 +14,21 @@ We hope we can provide more in the future update.
 
 Currently, the contributors for Abstrak Statistical Toolkit is solely
 Rizal Purnawan.
+
+## **Importing Abstrak Statistical Toolkit**
+
+Currently, the sole module in `abstrak_stats_toolkit` is `abstats`.
+Follow the command below to import the module in your notebook or
+local machine:
+
+1. First, install the package using the following command:
+```
+!pip install git+https://github.com/rizalpurnawan23/Abstrak-Statistical-Toolkit.git
+```
+2. Then import `abstats` using the following command:
+```
+from abstrak_stats_toolkit import abstats
+```
 
 ## **License**
 
