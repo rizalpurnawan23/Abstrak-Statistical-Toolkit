@@ -32,5 +32,6 @@ from abstrak_stats_toolkit import abstats
 
 ## **License**
 
-Abstrak Statistical Toolkit is under MIT License. So, feel free to
-use it. We hope it could be helpful for everybody.
+Abstrak Statistical Toolkit is under
+[MIT License](https://github.com/rizalpurnawan23/Abstrak-Statistical-Toolkit/tree/main?tab=MIT-1-ov-file).
+So, feel free to use it. We hope it could be helpful for everybody.
