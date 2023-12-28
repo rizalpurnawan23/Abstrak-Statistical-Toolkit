@@ -1,5 +1,6 @@
 # BismiLlahirrahmanirrahim
 # 27-Dec-2023
+# Update: 28-Dec-2023
 
 # ABOUT THE SCRIPT
 # ----------------
@@ -11,12 +12,14 @@ Description
 -----------
 
 This module contains the basic statistical tools such as algorithms
-for computing expectation, covariance, and correlations.
+for computing expectation, covariance, correlations, r-norm and
+coefficient of determination.
 """
 
 # 0. REQUIRED LIBRARIES
 # ---------------------
 from math import sqrt
+import numpy as np
 
 # 1. EXPECTATION OPERATOR
 # -----------------------
@@ -73,3 +76,50 @@ def corr_Spearman(X, Y):
         print("ERROR: Cannot compute almost surely constant random variables!")
         print("INFO: Please refer to the theoretical documentation!")
         raise ValueError
+    
+# 5. r-NORM
+# ---------
+def rNorm(Y, Y_):
+    """
+    Description
+    -----------
+
+    > Y     : Variable from the data
+    > Y_    : Statistical model
+    """
+
+    # Requirement:
+    if all(type(U) in [list, np.ndarray] for U in [Y, Y_]) \
+            and len(Y) == len(Y_):
+        pass
+    else:
+        print(">>> ERROR: Invalid 'Y' and 'Y_'!")
+        raise ValueError
+    
+    # Main algorithm:
+    Y, Y_ = list(Y), list(Y_)
+    EY = [E(Y)] *len(Y)
+    A = sum([(y - y_)**2 for y, y_ in zip(Y, Y_)])
+    B = sum([(y - ey)**2 for y, ey in zip(Y, EY)])
+    return A / B
+
+# 6. COEFFICIENT OF DETERMINATION
+# -------------------------------
+def R2(Y, Y_):
+    """
+    Description
+    -----------
+
+    > Y     : Variable from the data
+    > Y_    : Statistical model
+    """
+    # Requirement:
+    if all(type(U) in [list, np.ndarray] for U in [Y, Y_]) \
+            and len(Y) == len(Y_):
+        pass
+    else:
+        print(">>> ERROR: Invalid 'Y' and 'Y_'!")
+        raise ValueError
+    
+    # Main algorithm:
+    return 1 - rNorm(Y, Y_)
