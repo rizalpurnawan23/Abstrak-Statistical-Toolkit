@@ -79,7 +79,7 @@ def corr_Spearman(X, Y):
     
 # 5. r-NORM
 # ---------
-def rNorm(Y, Y_):
+def squared_rNorm(Y, Y_):
     """
     Description
     -----------
@@ -122,4 +122,4 @@ def R2(Y, Y_):
         raise ValueError
     
     # Main algorithm:
-    return 1 - rNorm(Y, Y_)
+    return 1 - squared_rNorm(Y, Y_)
